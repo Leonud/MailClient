@@ -11,4 +11,13 @@ public class MainController {
         return "login";
     }
 
+    @GetMapping("/")
+    public String main(){
+        return "main";
+    }
+
+    @GetMapping("/game")
+    public String game(){
+        return "MyProject";
+    }
 }
