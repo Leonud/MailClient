@@ -12,8 +12,8 @@ public class MapController {
 
 
     @GetMapping("/test")
-    public String showDefaultMap(){
-        
+    public String showDefaultMap() {
+
         return "defaultMap";
     }
 }

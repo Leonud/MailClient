@@ -8,43 +8,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
     @GetMapping("/loginPage")
-    public String showLoginPage(){
+    public String showLoginPage() {
         return "login";
     }
 
     @GetMapping("/")
-    public String main(){
+    public String main() {
         return "main";
     }
 
     @GetMapping("/game")
-    public String game()
-    {
+    public String game() {
         return "MyProject";
     }
 
     @GetMapping("/test")
-    public String testing(@RequestParam String name)
-    {
+    public String testing(@RequestParam String name) {
         System.out.println(name);
         return "test";
     }
 
     @GetMapping("/allFilms")
-    public String all()
-    {
+    public String all() {
         return "FilmsAll/allFilms";
     }
 
     @GetMapping("/createFilms")
-    public String create()
-    {
+    public String create() {
         return "FilmsAll/createFilm";
     }
 
     @GetMapping("/editFilm")
-    public String edit()
-    {
+    public String edit() {
         return "FilmsAll/editFilm";
     }
 }

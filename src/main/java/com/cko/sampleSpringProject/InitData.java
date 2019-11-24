@@ -1,7 +1,9 @@
 package com.cko.sampleSpringProject;
 
+import com.cko.sampleSpringProject.dao.FilmDAO;
 import com.cko.sampleSpringProject.model.Authority;
 import com.cko.sampleSpringProject.model.User;
+import com.cko.sampleSpringProject.model.film;
 import com.cko.sampleSpringProject.service.AuthorityService;
 import com.cko.sampleSpringProject.service.SMSCService;
 import com.cko.sampleSpringProject.service.UserService;
@@ -28,15 +30,20 @@ public class InitData {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Autowired
+    FilmDAO filmDAO;
+
+
     public void initData() {
 
 //        smscSender.send_sms("89775548911","TEST MESSAGE",1, "", "", 0, "", "");
+        film film = new film("Rassomaxa",9,10);
+        filmDAO.save(film);
         initUserAndRoles();
-
 
     }
 
-    private void initUserAndRoles(){
+    private void initUserAndRoles() {
         Authority adminAuthority = new Authority("ROLE_ADMIN");
         Authority userAuthority = new Authority("ROLE_USER");
         authorityService.insert(adminAuthority);
@@ -44,7 +51,7 @@ public class InitData {
 
         List<Authority> authorities = new ArrayList<Authority>();
         authorities.add(adminAuthority);
-        userService.insert(new User("1@mail.ru",bCryptPasswordEncoder.encode("1"), authorities));
+        userService.insert(new User("1@mail.ru", bCryptPasswordEncoder.encode("1"), authorities));
 
 
     }
