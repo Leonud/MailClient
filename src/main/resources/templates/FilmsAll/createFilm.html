@@ -22,12 +22,14 @@
             <h3>
                 <p align="center"> Создать </p>
             </h3>
-            <p align="center"><input placeholder="Title"></p>
-            <p align="center"><input placeholder="vat"></p>
-            <p align="center"><input placeholder="age"></p>
+            <form action="/films/createFilms" method="post">
+            <p align="center"><input name ="title" placeholder="Title"></p>
+            <p align="center"><input name ="rating" placeholder="vat"></p>
+            <p align="center"><input  name ="age" placeholder="age"></p>
             <p align="center">
-                <button>Создать</button>
+                <button type="submit">Создать</button>
             </p>
+            </form>
         </div>
         <div class="col align-self-end">
         </div>

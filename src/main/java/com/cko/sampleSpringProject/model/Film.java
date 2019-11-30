@@ -3,7 +3,7 @@ package com.cko.sampleSpringProject.model;
 import javax.persistence.*;
 
 @Entity
-public class film {
+public class Film {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +18,10 @@ public class film {
     @Column
     private int age;
 
-    public film() {
+    public Film() {
     }
 
-    public film(String title, int raiting, int age) {
+    public Film(String title, int raiting, int age) {
         this.title = title;
         this.rating = raiting;
         this.age = age;

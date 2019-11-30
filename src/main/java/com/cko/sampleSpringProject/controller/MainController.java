@@ -27,20 +27,5 @@ public class MainController {
         System.out.println(name);
         return "test";
     }
-
-    @GetMapping("/allFilms")
-    public String all() {
-        return "FilmsAll/allFilms";
-    }
-
-    @GetMapping("/createFilms")
-    public String create() {
-        return "FilmsAll/createFilm";
-    }
-
-    @GetMapping("/editFilm")
-    public String edit() {
-        return "FilmsAll/editFilm";
-    }
 }
 

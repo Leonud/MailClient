@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
@@ -22,12 +23,15 @@
             <h3>
                 <p align="center"> Изменить </p>
             </h3>
-            <p align="center"><input placeholder="Title"></p>
-            <p align="center"><input placeholder="vat"></p>
-            <p align="center"><input placeholder="age"></p>
-            <p align="center">
-                <button>Создать</button>
-            </p>
+            <form action="/films/editFilm" method="post">
+                <p align="center"><input name="id" placeholder="id" th:value="${film.id}" readonly></p>
+                <p align="center"><input name="title" placeholder="Name" th:value="${film.title}"></p>
+                <p align="center"><input name="rating" placeholder="Rating" th:value="${film.rating}"></p>
+                <p align="center"><input name="age" placeholder="age" th:value="${film.age}"></p>
+                <p align="center">
+                    <button>Редактировать</button>
+                </p>
+            </form>
         </div>
         <div class="col align-self-end">
         </div>
