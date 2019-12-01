@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -33,9 +35,15 @@ public class FilmController {
     }
 
     @PostMapping("/editFilm")
-        public String editFilm(Film film) {
+    public RedirectView editFilm(Film film) {
         filmDAO.save(film);
-        return "FilmsAll/allFilms";
+        return new RedirectView("/films/all");
+    }
+
+    @GetMapping("/deleteFilm")
+    public RedirectView deleteFilm(@RequestParam Long id) {
+        filmDAO.deleteById(id);
+        return new RedirectView("/films/all");
     }
 
     @GetMapping("/createFilms")
@@ -44,10 +52,28 @@ public class FilmController {
     }
 
     @PostMapping("/createFilms")
-    public String addNewFilm(Film film){
-        System.out.println(film.getTitle());
+    public RedirectView createFilms(Film film) {
         filmDAO.save(film);
-        return  "FilmsAll/allFilms";
+        return new RedirectView("/films/all");
+    }
+
+    @GetMapping("/all")
+    public  ModelAndView all(Film film){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("FilmsAll/allFilms");
+        List<Film> filmList = filmDAO.findAll();
+        modelAndView.addObject("films",filmList);
+        return modelAndView;
+    }
+
+    @GetMapping("/te")
+    public ModelAndView ShowFilmsPage(@RequestParam Long id) {
+        ModelAndView modelAndView = new ModelAndView();
+        Optional<Film>  optional = filmDAO.findById(id);
+        Film film = optional.get();
+        modelAndView.addObject("film",film);
+        modelAndView.setViewName("te");
+        return modelAndView;
     }
 }
 

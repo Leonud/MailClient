@@ -25,7 +25,7 @@ public class MainController {
     @GetMapping("/test")
     public String testing(@RequestParam String name) {
         System.out.println(name);
-        return "test";
+        return "te";
     }
 }
 

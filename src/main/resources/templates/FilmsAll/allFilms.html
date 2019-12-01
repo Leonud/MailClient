@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,61 +11,37 @@
 </head>
 
 <body id="nice">
-<div class="container">
-    <div class="row">
-        <div class="col-11">
-        </div>
-        <div class="col-1">
-            <button type="button" class="btn btn-outline-danger">Exit</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-9">
-        </div>
-        <div class="col-2">
-            <div class="textCreate">
-                <a href="https://vk.com">
-                    <span data-index="4-0" data-value="Create Product">Create Product</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-1">
-            <a>ID</a>
-        </div>
-        <div class="col-2">
-            <a>Name</a>
-        </div>
-        <div class="col-6">
-            <a>rating</a>
-        </div>
-        <div class="col-3">
-            <a>age</a>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-1">
-            <a> </a> <!-- ID -->
-        </div>
-        <div class="col-2">
-            <a> </a><!-- название -->
-        </div>
-        <div class="col-2">
-            <a> </a> <!-- рейтинг -->
-        </div>
-        <div class="col-4">
-            <a> </a> <!-- возраст -->
-        </div>
-        <div class="col-3">
-            <button type="button" class="btn btn-info">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-    </div>
-    <hr>
-</div>
-
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+        <th>Изменить</th>
+        <th>Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr th:each="film : ${films}">
+        <td th:text="${film.id}"></td>
+        <td th:text="${film.title}"></td>
+        <td th:text="${film.rating}"></td>
+        <td th:text="${film.age}"></td>
+        <td><a th:href="@{'/films/editFilm?id=' + ${film.id} }">
+            <button type="button" class="btn btn-primary">Изменить</button>
+        </a></td>
+        <td><a th:href="@{'/films/deleteFilm?id=' + ${film.id} }">
+            <button type="button" class="btn btn-danger">Удалить</button>
+        </a></td>
+    </tr>
+    </tr>
+    </tbody>
+</table>
+<a href="/films/createFilms">
+    <button type="button" class="btn btn-danger">Добавить</button>
+</a>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
