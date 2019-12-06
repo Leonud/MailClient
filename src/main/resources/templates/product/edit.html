@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
@@ -20,15 +21,16 @@
         </div>
         <div class="col align-self-center" id="rectangle">
             <h3>
-                <p align="center"> Создать </p>
+                <p align="center"> Изменить </p>
             </h3>
-            <form action="/films/createFilms" method="post">//Get и Post
-            <p align="center"><input name ="title" placeholder="Title"></p>
-            <p align="center"><input name ="rating" placeholder="vat"></p>
-            <p align="center"><input  name ="age" placeholder="age"></p>
-            <p align="center">
-                <button type="submit">Создать</button>
-            </p>
+            <form action="/products/edit" method="post">
+                <p align="center"><input name="id" placeholder="id" th:value="${product.id}" readonly></p>
+                <p align="center"><input name="name" placeholder="name" th:value="${product.name}"></p>
+                <p align="center"><input name="price" placeholder="price" th:value="${product.price}"></p>
+                <p align="center"><input name="amount" placeholder="amount" th:value="${product.amount}"></p>
+                <p align="center">
+                    <button>Редактировать</button>
+                </p>
             </form>
         </div>
         <div class="col align-self-end">

@@ -1,41 +1,47 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="stile.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body id="nice">
-
-<div class="container">
-    <div class="row">
-        <div class="col align-self-start">
-        </div>
-        <div class="col align-self-center" id="rectangle">
-            <h3>
-                <p align="center"> Создать </p>
-            </h3>
-            <form action="/films/createFilms" method="post">//Get и Post
-            <p align="center"><input name ="title" placeholder="Title"></p>
-            <p align="center"><input name ="rating" placeholder="vat"></p>
-            <p align="center"><input  name ="age" placeholder="age"></p>
-            <p align="center">
-                <button type="submit">Создать</button>
-            </p>
-            </form>
-        </div>
-        <div class="col align-self-end">
-        </div>
-    </div>
-</div>
-
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">amount</th>
+        <th>Изменить</th>
+        <th>Купить</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr th:each="Product : ${products}">
+        <td th:text="${Product.id}"></td>
+        <td th:text="${Product.name}"></td>
+        <td th:text="${Product.price}"></td>
+        <td th:text="${Product.amount}"></td>
+        <td><a th:href="@{'/products/edit?id=' + ${Product.id} }">
+            <button type="button" class="btn btn-primary">Изменить</button>
+        </a></td>
+        <td><a th:href="@{'/products/delete?id=' + ${Product.id} }">
+            <button type="button" class="btn btn-danger">Удалить</button>
+        </a></td>
+    </tr>
+    </tr>
+    </tbody>
+</table>
+<a href="/films/createFilms">
+    <button type="button" class="btn btn-danger">Добавить</button>
+</a>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

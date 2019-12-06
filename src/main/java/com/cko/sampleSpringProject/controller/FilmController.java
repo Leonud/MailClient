@@ -37,7 +37,7 @@ public class FilmController {
     @PostMapping("/editFilm")
     public RedirectView editFilm(Film film) {
         filmDAO.save(film);
-        return new RedirectView("/films/all");
+        return new RedirectView("/films/allFilm");
     }
 
     @GetMapping("/deleteFilm")
@@ -54,7 +54,7 @@ public class FilmController {
     @PostMapping("/createFilms")
     public RedirectView createFilms(Film film) {
         filmDAO.save(film);
-        return new RedirectView("/films/all");
+        return new RedirectView("/films/allFilm");
     }
 
     @GetMapping("/all")
