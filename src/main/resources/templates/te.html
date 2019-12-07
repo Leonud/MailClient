@@ -1,26 +1,17 @@
-<!doctype html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
 
 <head>
 </head>
 
-</head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col align-self-start">
-        </div>
-        <div class="col align-self-center">
+<button onclick="getAll()"> Click to get all</button>
 
-<form action="/films/te" method="post">
-    <input align="center"  th:value="${film.title}"></input>
-    </form>
-        </div>
-    </div>
-    <div class="col align-self-end">
-    </div>
-</div>
 
+
+<script src="/js/script.js" type="application/javascript"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 </body>
 </html>
+

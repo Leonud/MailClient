@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface FilmDAO extends CrudRepository<Film, Long> {
     List<Film> findAll();
+    Film findFilmById(Long id);
 }

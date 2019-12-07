@@ -47,8 +47,13 @@ public class InitData {
 
 //        smscSender.send_sms("89775548911","TEST MESSAGE",1, "", "", 0, "", "");
         for (int i = 0; i < 10; i++) {
-            Product Product = new Product(faker.food().ingredient(), i, i * 2);
+            Product Product = new Product(faker.food().ingredient(), (int) ( Math.random() * 100 ), (int) ( Math.random() * 50 ));
             productDAO.save(Product);
+        }
+
+        for (int i = 0; i < 10; i++) {
+            Film film = new Film(faker.superhero().name(), i, i * 2);
+            filmDAO.save(film);
         }
     }
 
