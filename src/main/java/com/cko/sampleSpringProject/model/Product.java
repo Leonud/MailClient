@@ -21,10 +21,10 @@ public class Product {
     public Product() {
     }
 
-    public Product(String title, int raiting, int age) {
-        this.name = title;
-        this.price = raiting;
-        this.amount = age;
+    public Product(String name, int price, int amount) {
+        this.name = name;
+        this.price = price;
+        this.amount = amount;
     }
 
     public long getId() {

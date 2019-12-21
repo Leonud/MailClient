@@ -65,5 +65,10 @@ public class ProductController {
         return new RedirectView("/products/all");
     }
 
+    @GetMapping("/product")
+    public String pro() {
+        return "productPage";
+    }
+
 }
 
