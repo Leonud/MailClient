@@ -35,4 +35,9 @@ public class popmail {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/write")
+    public String write() {
+        return "write";
+    }
 }
